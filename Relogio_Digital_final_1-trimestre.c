@@ -7,7 +7,7 @@ Author: Gabriel Dornelles Monteiro
 Turma :4423
 Sistemas Microprocessados II
 Professor: Raul Faviero de Mesquita
-Trabalho: Relógio digital ajustável com carga
+Trabalho: RelÃ³gio digital ajustÃ¡vel com carga
 */
 
 
@@ -205,11 +205,11 @@ static void MX_NVIC_Init(void);
  	}
  }
 
- //**** ESCRITA DE UMA VARIÁVEL NUMÉRICA DECIMAL (Número)  ****
+ //**** ESCRITA DE UMA VARIÃVEL NUMÃ‰RICA DECIMAL (NÃºmero)  ****
 
  void lcd_printd(uint16_t c){
  	char buf[10];
- 	sprintf(buf,"%.2d",c); // 2 digitos, a unidade do numero fica no endereço de memoria seguinte ao indicado na função goto
+ 	sprintf(buf,"%.2d",c); // 2 digitos, a unidade do numero fica no endereÃ§o de memoria seguinte ao indicado na funÃ§Ã£o goto
  	lcd_puts(buf);
  }
 
@@ -238,7 +238,7 @@ static void MX_NVIC_Init(void);
  }
 
 
-/////////// Funções para caracter especial adaptadas do PIC, não são confiáveis no momento.
+/////////// FunÃ§Ãµes para caracter especial adaptadas do PIC, nÃ£o sÃ£o confiÃ¡veis no momento.
  void Lcd_SetBit(char data_bit) //Based on the Hex value Set the Bits of the Data Lines
  {
      if(data_bit& 1)
@@ -298,7 +298,7 @@ static void MX_NVIC_Init(void);
 
 
 
- //*** LIMPEZA DA MEMÓRIA DDRAM (Tela) *****
+ //*** LIMPEZA DA MEMÃ“RIA DDRAM (Tela) *****
 
  void lcd_clear() {
  	HAL_GPIO_WritePin(LCD_EN_GPIO_Port,LCD_RS_Pin,0);
@@ -442,10 +442,10 @@ hourend=0;
      	 if(Repique==1)
     		 {
     	  HAL_Delay(100);
-    	  lcd_write(0x0D);// pisca na posição da variavel actualposition, que é chamada sempre ao fim da interrupção do timer, posição real, visivel ao usuario
+    	  lcd_write(0x0D);// pisca na posiÃ§Ã£o da variavel actualposition, que Ã© chamada sempre ao fim da interrupÃ§Ã£o do timer, posiÃ§Ã£o real, visivel ao usuario
           if(horarioacertado==1)
           {
-        	  lcd_write(0x0C); //desliga o cursor após ter acertado todos os horarios
+        	  lcd_write(0x0C); //desliga o cursor apÃ³s ter acertado todos os horarios
           }
 
     	  HAL_Delay(100);
@@ -468,13 +468,13 @@ hourend=0;
     	  HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin, RESET);
     	  load_on=1;
 
-    	  if(traderepeat==1) //1 é para não repetir no dia seguinte
+    	  if(traderepeat==1) //1 Ã© para nÃ£o repetir no dia seguinte
     	      	  {
     	      		  displayinfo=0;
     	      		  time_set_not=1;
     	      	  }
 
-    	  if(traderepeat==0) //0 é para repetir no dia seguinte
+    	  if(traderepeat==0) //0 Ã© para repetir no dia seguinte
     	  {
     		  displayinfo=1;
     	  }
@@ -690,7 +690,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	if(Repique==0)
 	{
 
-		if( GPIO_Pin == INT1_Pin) // pc1 como interrupção
+		if( GPIO_Pin == INT1_Pin) // pc1 como interrupÃ§Ã£o
 		{
 			if(actualposition==0x80)
 			{
@@ -750,7 +750,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		}
 
 
-				if( GPIO_Pin == INT0_Pin) //pc0 como interrupção
+				if( GPIO_Pin == INT0_Pin) //pc0 como interrupÃ§Ã£o
 				{
 				 if(actualposition==0x89+0x1)
 			     {
@@ -774,7 +774,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 
 
-				if(time_select==1 ) // seleção do horario de ligar/desligar carga
+				if(time_select==1 ) // seleÃ§Ã£o do horario de ligar/desligar carga
 				{
 
 					actualposition+=0x01;
@@ -867,7 +867,7 @@ if(minselectend>=60)
 	minselectend=0;
 }
 
-          //Posições e escrita do relógio no display
+          //PosiÃ§Ãµes e escrita do relÃ³gio no display
 		  lcd_goto(0x80);
 		  lcd_printd(horas);
 		  lcd_goto(0x82);
@@ -882,7 +882,7 @@ if(minselectend>=60)
 	      lcd_printd(traderepeat);
 
 
-    //Posições e escrita dos tempos de liga e desliga da carga no display
+    //PosiÃ§Ãµes e escrita dos tempos de liga e desliga da carga no display
 
 if(displayinfo==1)
 {
